@@ -42,20 +42,20 @@ function LoggedIn() {
   );
 }
  
-function LoginHandler() {
-  const [loggedIn, setLoggedIn] = useState(false)
+function LoginHandler(props) {
+  //const [loggedIn, setLoggedIn] = useState(false)
  
   const logout = () => { 
     facade.logout();
-    setLoggedIn(false);
+    props.setLoggedIn(false);
   } 
   const login = (user, pass) => {
     facade.login(user, pass)
-    .then(res => setLoggedIn(true));
+    .then(res => props.setLoggedIn(true));
   } 
   return (
     <div>
-      {!loggedIn ? (<LogIn login={login} />) :
+      {!props.loggedIn ? (<LogIn login={login} />) :
         (<div>
           <LoggedIn />
           <button onClick={logout}>Logout</button>
