@@ -1,10 +1,39 @@
+import React, { useEffect, useState } from "react";
+import facade from "./ApiFacade";
+
 function Home () {
+    
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        facade.getCourses().then((data) => {
+          setCourses(data);
+        });
+      }, []);
+
+      console.log(courses);
+
+
     return (
-        <div>
-            <h3>Practical information about this website</h3>
-            <br></br>
-            <h5>Total number of exercise activities: </h5>
-        </div>
+        <React.Fragment>
+            <h2>List of all courses</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Course name</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {courses.map(course => (
+                <tr>
+                    <td>{course.courseName}</td>
+                    <td>{course.description}</td>
+                </tr>
+                ))}
+                </tbody>
+            </table>
+            </React.Fragment>
     )
 }
 

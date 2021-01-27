@@ -57,8 +57,9 @@ function apiFacade() {
     return fetch(`${URL}/api/info/${getRole()}`, options).then(handleHttpErrors);
   }
 
-  const fetchAllData = () => {
-    return fetch(`${URL}/api/info/data`).then(handleHttpErrors);
+  const getCourses = () => {
+    const options = makeOptions("GET", true);
+    return fetch(URL + "/api/course/all", options).then(handleHttpErrors);
   }
 
   const makeOptions = (method, addToken, body) => {
@@ -86,7 +87,7 @@ function apiFacade() {
     logout,
     addCourse,
     fetchData,
-    fetchAllData
+    getCourses
   }
 }
 const facade = apiFacade();
