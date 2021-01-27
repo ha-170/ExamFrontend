@@ -46,16 +46,6 @@ function apiFacade() {
       })
   }
 
-  const signup = (user, password) => {
-    const options = makeOptions("POST", true, { username: user, password: password });
-    return fetch(URL + "/api/signup", options)
-      .then(handleHttpErrors)
-      .then(res => {
-        setToken(res.token);
-        setRole(getPayloadFromToken(res.token).roles);
-      })
-    }
-
   const fetchData = () => {
     const options = makeOptions("GET", true);
     return fetch(`${URL}/api/info/${getRole()}`, options).then(handleHttpErrors);
@@ -87,7 +77,6 @@ function apiFacade() {
     getToken,
     loggedIn,
     login,
-    signup,
     logout,
     fetchData,
     fetchAllData

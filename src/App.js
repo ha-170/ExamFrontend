@@ -1,7 +1,6 @@
 import Header from './Components/Header';
 import Home from './Components/Home';
 import Login from './Components/Login';
-import Signup from './Components/Signup';
 import ExApi from './Components/ExApi.js';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 function App() {
@@ -15,9 +14,6 @@ function App() {
                     </Route>
                     <Route path='/login'>
                         <Login />
-                    </Route>
-                    <Route path='/signup'>
-                        <Signup />
                     </Route>
                     <Route path='/user'>
                         show user

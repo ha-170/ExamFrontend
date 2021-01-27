@@ -8,7 +8,6 @@ function Header() {
                 <Nav className="mr-auto">
                     <Nav.Link href="/home">Home</Nav.Link>                    
                     <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/signup">Signup</Nav.Link>
                     <Nav.Link href="/external-api">External API</Nav.Link>
                 </Nav>
             </Navbar>
