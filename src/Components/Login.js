@@ -43,7 +43,6 @@ function LoggedIn() {
 }
  
 function LoginHandler(props) {
-  //const [loggedIn, setLoggedIn] = useState(false)
  
   const logout = () => { 
     facade.logout();

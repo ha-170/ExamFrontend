@@ -1,15 +1,16 @@
 import Header from './Components/Header';
 import Home from './Components/Home';
 import Login from './Components/Login';
-import Courses from './Components/Courses.js';
+import AddCourse from './Components/AddCourse.js';
 import facade from "./Components/ApiFacade";
 import React, { useState } from "react";
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { useHistory, Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 function App() {
+
     const token = facade.getToken();
     const isLoggedIn = token!==null;
     const [loggedIn, setLoggedIn] = useState(isLoggedIn);
-
+    
     return (
         <div>
         <Header loggedIn={loggedIn}/>
@@ -27,8 +28,8 @@ function App() {
                     <Route path='/admin'>
                         show admin stuff
                     </Route>
-                    <Route path='/courses'>
-                        <Courses />
+                    <Route path='/add-course'>
+                        <AddCourse />
                     </Route>
                 </Switch>
             </Router>

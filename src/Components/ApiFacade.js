@@ -46,6 +46,16 @@ function apiFacade() {
       })
   }
 
+  const addCourse = (course) => {
+    const options = makeOptions("POST", true, { courseName: course.courseName, description: course.description });
+    return fetch(URL + "/api/course", options)
+      .then(handleHttpErrors)
+      .then(res => {
+        setToken(res.token);
+        setRole(getPayloadFromToken(res.token).roles);
+      })
+  }
+
   const fetchData = () => {
     const options = makeOptions("GET", true);
     return fetch(`${URL}/api/info/${getRole()}`, options).then(handleHttpErrors);
@@ -78,6 +88,7 @@ function apiFacade() {
     loggedIn,
     login,
     logout,
+    addCourse,
     fetchData,
     fetchAllData
   }
