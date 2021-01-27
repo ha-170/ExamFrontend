@@ -48,12 +48,8 @@ function apiFacade() {
 
   const addCourse = (course) => {
     const options = makeOptions("POST", true, { courseName: course.courseName, description: course.description });
-    return fetch(URL + "/api/course", options)
-      .then(handleHttpErrors)
-      .then(res => {
-        setToken(res.token);
-        setRole(getPayloadFromToken(res.token).roles);
-      })
+    return fetch(URL + "/api/course/add", options)
+      .then(handleHttpErrors);
   }
 
   const fetchData = () => {
