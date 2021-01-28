@@ -2,9 +2,12 @@ import Header from './Components/Header';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import AddCourse from './Components/AddCourse.js';
+import AddClass from './Components/AddClass.js';
 import facade from "./Components/ApiFacade";
 import React, { useState } from "react";
-import { useHistory, Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import Classes from './Components/Classes';
+
 function App() {
 
     const token = facade.getToken();
@@ -22,14 +25,14 @@ function App() {
                     <Route path='/login'>
                         <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
                     </Route>
-                    <Route path='/user'>
-                        show user
-                    </Route>
-                    <Route path='/admin'>
-                        show admin stuff
-                    </Route>
                     <Route path='/add-course'>
                         <AddCourse />
+                    </Route>
+                    <Route path='/add-class'>
+                        <AddClass />
+                    </Route>
+                    <Route path='/classes'>
+                        <Classes />
                     </Route>
                 </Switch>
             </Router>

@@ -52,6 +52,12 @@ function apiFacade() {
       .then(handleHttpErrors);
   }
 
+  const addClass = (Class) => {
+    const options = makeOptions("POST", true, { semester: Class.semester, numberOfStudents: Class.numberOfStudents, course:{id:Class.courseId} });
+    return fetch(URL + "/api/class/add", options)
+      .then(handleHttpErrors);
+  }
+
   const fetchData = () => {
     const options = makeOptions("GET", true);
     return fetch(`${URL}/api/info/${getRole()}`, options).then(handleHttpErrors);
@@ -60,6 +66,11 @@ function apiFacade() {
   const getCourses = () => {
     const options = makeOptions("GET", true);
     return fetch(URL + "/api/course/all", options).then(handleHttpErrors);
+  }
+
+  const getClasses = () => {
+    const options = makeOptions("GET", true);
+    return fetch(URL + "/api/class/all", options).then(handleHttpErrors);
   }
 
   const makeOptions = (method, addToken, body) => {
@@ -86,8 +97,10 @@ function apiFacade() {
     login,
     logout,
     addCourse,
+    addClass,
     fetchData,
-    getCourses
+    getCourses,
+    getClasses
   }
 }
 const facade = apiFacade();

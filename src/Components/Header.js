@@ -13,6 +13,8 @@ function Header({loggedIn}) {
                 {loggedIn && (
                 <React.Fragment>
                     <Nav.Link href="/add-course">Add course</Nav.Link>
+                    <Nav.Link href="/add-class">Add class</Nav.Link>
+                    <Nav.Link href="/classes">All classes</Nav.Link>
                 </React.Fragment>
             )}
             </Nav>

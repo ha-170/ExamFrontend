@@ -11,22 +11,21 @@ function Home () {
         });
       }, []);
 
-      console.log(courses);
-
-
     return (
         <React.Fragment>
             <h2>List of all courses</h2>
             <table>
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Course name</th>
                     <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
                 {courses.map(course => (
-                <tr>
+                <tr key={course.id}>
+                    <td>{course.id}</td>
                     <td>{course.courseName}</td>
                     <td>{course.description}</td>
                 </tr>
