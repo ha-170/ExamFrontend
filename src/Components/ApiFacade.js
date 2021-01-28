@@ -53,7 +53,7 @@ function apiFacade() {
   }
 
   const addClass = (Class) => {
-    const options = makeOptions("POST", true, { semester: Class.semester, numberOfStudents: Class.numberOfStudents, course:{id:Class.courseId} });
+    const options = makeOptions("POST", true, { semester: Class.semester, numberOfStudents: Class.numberOfStudents, course:{id:Class.course.id} });
     return fetch(URL + "/api/class/add", options)
       .then(handleHttpErrors);
   }

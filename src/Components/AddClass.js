@@ -5,7 +5,7 @@ const AddClass = () => {
     const initialValue = {
       semester: "",
       numberOfStudents: "",
-      courseId: ""
+      course: ""
     };
 
     const [Class, SetClass] = useState(initialValue);
@@ -24,7 +24,7 @@ const AddClass = () => {
         console.log(event);
         const target = event.target;
         const value = target.value;
-        SetClass({ ...Class, courseId: value });
+        SetClass({ ...Class, course: value });
     }
 
     const handleChange = (event) => {
@@ -58,7 +58,7 @@ const AddClass = () => {
            <select value={selectedOption} onChange={e => setSelectedOption(handleOption(e))}>
            <option value="" disabled selected>Select course</option>
                {courses.map(c => (
-                   <option key={c.id} value={c.id}>{c.courseName}</option>
+                   <option key={c.id} value={c}>{c.courseName}</option>
                ))}
            </select>
           <br></br>
